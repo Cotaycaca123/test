@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Day Counter 💖</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #days {
+      font-size: 3em;
+      font-weight: bold;
+      color: #ff006e;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Ngày yêu nhau 💖</h1>
+    <p>Chúng mình đã bên nhau:</p>
+    <div id="days"></div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <script>
+    // 👉 Đổi ngày này thành ngày bắt đầu yêu nhau
+    const startDate = new Date("2024-02-14"); 
+
+    function updateDays() {
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById("days").innerText = diffDays + " ngày 💕";
+    }
+
+    updateDays();
+  </script>
+</body>
+</html>
