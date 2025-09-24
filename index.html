@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday Thảo Nhung 🎂</title>
+  <title>Happy Birthday Thảo Nhung</title>
   <style>
     body {
       margin: 0;
@@ -10,151 +10,76 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #ffd6e7, #ffe6f0);
+      background: linear-gradient(135deg, #ffd6e7, #ffe6f2, #ffccd9);
       overflow: hidden;
-      font-family: "Comic Sans MS", cursive;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
-    /* Hiệu ứng lung linh nền */
-    .sparkle {
+    .bg-images {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: sparkleAnim 3s infinite;
-    }
-    @keyframes sparkleAnim {
-      0% { transform: scale(0.5) translateY(0); opacity: 0.8; }
-      50% { transform: scale(1.5) translateY(-20px); opacity: 0.3; }
-      100% { transform: scale(0.5) translateY(0); opacity: 0.8; }
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    /* Hộp quà */
-    .gift {
-      width: 120px;
-      height: 120px;
-      background: #ff4d94;
+    .bg-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .text {
       position: relative;
-      cursor: pointer;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .gift:before {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 120px;
-      background: white;
-    }
-    .gift:after {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 120px;
-      background: white;
-    }
-
-    /* Ảnh bung ra */
-    .photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 10px;
-      position: absolute;
-      opacity: 0;
-      transition: all 1s ease-out;
-      transform: scale(0.5);
-    }
-
-    /* Lời chúc */
-    #wish {
-      font-size: 20px;
-      font-weight: bold;
-      color: #ff4d94;
+      z-index: 1;
+      font-size: 28px;
+      color: #fff;
       text-align: center;
-      margin-top: 20px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
       max-width: 80%;
-      line-height: 1.5;
-      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .highlight {
+      color: #ffeff7;
     }
   </style>
 </head>
 <body>
+  <div class="bg-images">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_3545.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4992.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4995.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6909.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6911.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8233.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8240.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8251.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/att.HRrCGQSTH8rtQPpiFIcy7Dbg_1ZusoDjIjZ0tOMKxPY.jpeg" alt="">
+  </div>
 
-  <!-- Nền lung linh -->
-  <div id="sparkles"></div>
-
-  <!-- Hộp quà -->
-  <div class="gift" id="giftBox">🎁</div>
-
-  <!-- 9 tấm ảnh -->
-  <img src="link1.jpg" class="photo" id="p1">
-  <img src="link2.jpg" class="photo" id="p2">
-  <img src="link3.jpg" class="photo" id="p3">
-  <img src="link4.jpg" class="photo" id="p4">
-  <img src="link5.jpg" class="photo" id="p5">
-  <img src="link6.jpg" class="photo" id="p6">
-  <img src="link7.jpg" class="photo" id="p7">
-  <img src="link8.jpg" class="photo" id="p8">
-  <img src="link9.jpg" class="photo" id="p9">
-
-  <!-- Lời chúc -->
-  <div id="wish"></div>
+  <div class="text" id="message"></div>
 
   <script>
-    // Tạo lung linh
-    for (let i = 0; i < 40; i++) {
-      let s = document.createElement("div");
-      s.className = "sparkle";
-      s.style.left = Math.random() * window.innerWidth + "px";
-      s.style.top = Math.random() * window.innerHeight + "px";
-      s.style.animationDuration = (2 + Math.random() * 3) + "s";
-      document.getElementById("sparkles").appendChild(s);
-    }
-
-    // Vị trí ảnh bung ra (theo vòng tròn)
-    const positions = [
-      [200,0],[140,140],[0,200],[-140,140],
-      [-200,0],[-140,-140],[0,-200],[140,-140],[200,200]
-    ];
-
-    const giftBox = document.getElementById("giftBox");
-    let opened = false;
-
-    giftBox.addEventListener("click", () => {
-      if(opened) return;
-      opened = true;
-
-      // Bung ảnh ra
-      positions.forEach((pos, index) => {
-        let p = document.getElementById("p" + (index+1));
-        p.style.left = (window.innerWidth/2 + pos[0]) + "px";
-        p.style.top = (window.innerHeight/2 + pos[1]) + "px";
-        p.style.opacity = 1;
-        p.style.transform = "scale(1) rotate(360deg)";
-      });
-
-      // Sau 2s thì hiện lời chúc
-      setTimeout(typeEffect, 2000);
-    });
-
-    // Lời chúc
-    const text = "Anh chúc Thảo Nhung có một ngày sinh nhật 🎂 thật đầy ý nghĩa. Cô bé nhỏ của anh thêm một tuổi mới luôn vui vẻ 😇, tươi tắn và hạnh phúc bên gia đình. Chúc em có kết quả thật tốt trong học tập nhaaa 💯 Mãiiii yeuuu 😘";
-    const words = text.split(" ");
+    const message = "Anh chúc Thảo Nhung có một ngày sinh nhật 🎂 thật đầy ý nghĩa. " +
+      "Cô bé nhỏ của anh thêm một tuổi mới luôn vui vẻ 😇 tươi tắn và hạnh phúc bên gia đình, " +
+      "có kết quả tốt trong học tập nhaaa 💯 Mãiiii yeuuu 😘";
+    
     let i = 0;
-
     function typeEffect() {
-      if (i < words.length) {
-        document.getElementById("wish").innerHTML += words[i] + " ";
+      if (i < message.length) {
+        document.getElementById("message").innerHTML += message.charAt(i);
         i++;
-        setTimeout(typeEffect, 300);
+        setTimeout(typeEffect, 100);
       }
     }
+    window.onload = typeEffect;
   </script>
 </body>
 </html>
