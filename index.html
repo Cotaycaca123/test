@@ -2,8 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chúc Mừng Sinh Nhật</title>
+  <title>Happy Birthday Thảo Nhung</title>
   <style>
     body {
       margin: 0;
@@ -11,144 +10,108 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #ffe6f2;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #ffe6f2, #ffccd9);
       overflow: hidden;
+      font-family: "Comic Sans MS", cursive, sans-serif;
     }
 
-    .container {
-      position: relative;
+    .bg-images {
+      position: absolute;
       width: 100%;
       height: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    .gift {
-      width: 120px;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2; /* Hộp quà luôn nằm trên */
-      transition: transform 0.3s ease;
-    }
-
-    .gift:hover {
-      transform: translate(-50%, -50%) scale(1.1);
-    }
-
-    .message {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
+    .bg-images img {
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 1;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .text {
       position: relative;
       z-index: 1;
-      font-size: 46px; /* chữ lớn hơn */
+      font-size: 38px;
       color: #fff;
       text-align: center;
       font-weight: 900;
-      line-height: 1.6;
+      line-height: 1.5;
+      text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
       max-width: 80%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-
-      /* Nền hồng mờ lấp lánh */
-      background: linear-gradient(135deg, rgba(255,105,180,0.7), rgba(255,182,193,0.7));
-      padding: 25px 35px;
-      border-radius: 25px;
-      box-shadow: 0 6px 20px rgba(255,105,180,0.5);
     }
 
-    .slideshow {
-      display: none;
-      width: 100%;
-      height: 100%;
+    .gift {
       position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
+      z-index: 10;
+      cursor: pointer;
+      width: 200px;
+      height: 200px;
+      background: url('https://cdn-icons-png.flaticon.com/512/869/869636.png') no-repeat center/contain;
+      animation: bounce 1s infinite alternate;
     }
 
-    .slideshow img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-    }
-
-    .slideshow img.active {
-      opacity: 1;
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Gift" class="gift" id="gift">
+  <!-- Hộp quà -->
+  <div class="gift" id="gift"></div>
 
-    <div class="message" id="message">
-      <div class="text" id="text">💖 Chúc mừng sinh nhật tình yêu 💖</div>
-    </div>
-
-    <div class="slideshow" id="slideshow">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_3545.jpeg" class="active">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4992.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4995.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6909.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6911.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8233.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8240.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8251.jpeg">
-      <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/att.HRrCGQSTH8rtQPpiFIcy7Dbg_1ZusoDjIjZ0tOMKxPY.jpeg">
-    </div>
+  <!-- Ảnh nền -->
+  <div class="bg-images" id="bg">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_3545.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4992.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_4995.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6909.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_6911.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8233.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8240.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/IMG_8251.jpeg" alt="">
+    <img src="https://raw.githubusercontent.com/Cotaycaca123/test/refs/heads/main/att.HRrCGQSTH8rtQPpiFIcy7Dbg_1ZusoDjIjZ0tOMKxPY.jpeg" alt="">
   </div>
+
+  <!-- Lời chúc -->
+  <div class="text" id="message"></div>
 
   <script>
     const gift = document.getElementById("gift");
-    const message = document.getElementById("message");
-    const text = document.getElementById("text");
-    const slideshow = document.getElementById("slideshow");
-    const slides = slideshow.getElementsByTagName("img");
-    let currentSlide = 0;
+    const bg = document.getElementById("bg");
+    const messageEl = document.getElementById("message");
 
-    gift.addEventListener("click", () => {
-      gift.style.display = "none";
-      message.style.display = "flex";
-      text.style.opacity = 1;
-      setTimeout(() => {
-        message.style.display = "none";
-        slideshow.style.display = "block";
-        showSlide();
-        setInterval(nextSlide, 4000);
-      }, 3000);
-    });
+    const message = "Anh chúc Thảo Nhung có một ngày sinh nhật 🎂 thật đầy ý nghĩa.\n\n" +
+      "Cô bé nhỏ của anh thêm một tuổi mới luôn vui vẻ 😇 tươi tắn và hạnh phúc bên gia đình.\n\n" +
+      "Có kết quả tốt trong học tập nhaaa 💯\n\n" +
+      "Mãiiii yeuuu 😘";
 
-    function showSlide() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
+    let i = 0;
+
+    gift.onclick = () => {
+      gift.style.display = "none";   // ẩn hộp quà
+      bg.style.opacity = "1";        // hiện ảnh
+      messageEl.style.opacity = "1"; // hiện chữ
+      typeEffect();
+    };
+
+    function typeEffect() {
+      if (i < message.length) {
+        messageEl.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeEffect, 80);
       }
-      slides[currentSlide].classList.add("active");
-    }
-
-    function nextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
     }
   </script>
 </body>
